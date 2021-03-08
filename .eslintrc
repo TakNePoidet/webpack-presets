@@ -1,0 +1,7 @@
+{
+	"extends": ["taknepoidet/common", "taknepoidet/typescript"],
+	"rules": {
+		"import/prefer-default-export": "off",
+		"@typescript-eslint/ban-ts-comment": "off"
+	}
+}

@@ -1,0 +1,1 @@
+export const mode = (_mode = 'development'): any => ({ mode: _mode })
