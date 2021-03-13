@@ -1,5 +1,5 @@
 import deepmerge from 'deepmerge';
-import { compressionPlugin, brotliWebpackPlugin } from "../plagin";
+import { compressionPlugin } from "../plagin";
 
 interface Options {
 	useZip: boolean;
@@ -13,16 +13,11 @@ interface Options {
 export const compres = (_options: Partial<Options> = {}): any => {
 	const options: Options = deepmerge({
 		useZip: true,
-		useBrotli: false,
 		compress: {},
-		brotli: {},
 	}, _options);
 	const plagins = [];
 	if (options.useZip) {
 		plagins.push(compressionPlugin(options.compress));
-	}
-	if (options.useBrotli) {
-		plagins.push(brotliWebpackPlugin(options.brotli));
 	}
 	return {
 		plagins

@@ -1,6 +1,4 @@
 import deepmerge from 'deepmerge';
-// @ts-ignore
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { cssLoader, sassLoader, postcssLoader } from '../loaders';
 import { sassTest } from '../tests';
 
@@ -25,11 +23,7 @@ const defaultOptions: RuleSass = {
 export const sassRule = (_options: Partial<RuleSass> = {}): any => {
 	const options = deepmerge(defaultOptions, _options);
 	const use = [];
-	if (options.dev || options.extract === false) {
-		use.push(cssLoader(options.loaderCss));
-	} else if (options.extract === true) {
-		use.push(MiniCssExtractPlugin.loader);
-	}
+	use.push(cssLoader(options.loaderCss));
 	use.push(postcssLoader(options.loaderPostcss));
 	use.push(sassLoader(options.loaderSass));
 	return {

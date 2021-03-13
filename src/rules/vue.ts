@@ -1,5 +1,5 @@
 // @ts-ignore
-import VueLoaderPlugin from 'vue-loader/lib/plugin';
+import { VueLoaderPlugin } from 'vue-loader';
 import { vueLoader } from "../loaders";
 import { vueTest } from "../tests";
 
